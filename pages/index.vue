@@ -8,11 +8,14 @@
             <div>Result:</div>
             {{ body }}
         </div>
+        <button @click="verify">Get Info</button>
     </div>
     <NuxtLink to="/dashboard">Dashboard</NuxtLink>
 </template>
 
 <script setup lang="ts">
+import { GetTokenResponse } from "google-auth-library/build/src/auth/oauth2client";
+import { json } from "stream/consumers";
 import {
     useCodeClient,
     type ImplicitFlowSuccessResponse,
@@ -32,9 +35,10 @@ const handleOnSuccess = async (response: ImplicitFlowSuccessResponse) => {
             code: response.code,
         }),
     });
-    body.value = JSON.stringify(await res.json());
+    const json = await res.json()
+    body.value = JSON.stringify(json);
 
-    console.log('handleOnSuccess:res', body);
+    console.log('handleOnSuccess:res', json);
 
 };
 
@@ -47,6 +51,16 @@ const { isReady, login } = useCodeClient({
     onError: handleOnError,
     // other options
 });
+
+const verify = async () => {
+    const { tokens } = JSON.parse(body.value) as GetTokenResponse;
+
+    const res = await fetch('/api/verify', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { Authorization: `${tokens.token_type} ${tokens.id_token}`, 'Content-Type': 'application/json' }
+    })
+}
 
 // const CLIENT_ID = "389924773294-s7t01ql7g2jhd83lbo80d6t6inqfn1e1.apps.googleusercontent.com";
 

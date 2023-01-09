@@ -19,7 +19,6 @@ export default defineEventHandler(async event => {
   try {
     // code comes in the body
     const { code } = await readBody(event);
-    console.log("cb:code", code);
 
     // create a new OAuth2 client
     const client = getOauth2Client();
@@ -32,8 +31,6 @@ export default defineEventHandler(async event => {
     client.setCredentials(result.tokens);
 
     // you can do whatever with the tokens
-    console.log("cb:result.tokens", result.tokens);
-
     return { tokens: result.tokens };
   } catch (error) {
     return { message: `cb:error`, error };
