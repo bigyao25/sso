@@ -1,42 +1,5 @@
-# Nuxt 3 Minimal Starter
+# Exceptions
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## error: redirect_uri_mismatch
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+> https://stackoverflow.com/questions/11485271/google-oauth-2-authorization-error-redirect-uri-mismatch#:~:text=Other%20common%20URI%20mismatch%20are%3A%201%20Using%20http%3A%2F%2F,slash%20%28%20http%3A%2F%2Fexample.com%29%20as%20actual%20URL%2C%20or%20vice-versa

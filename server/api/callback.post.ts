@@ -2,7 +2,10 @@ import { OAuth2Client } from "google-auth-library";
 
 const CLIENT_ID = "389924773294-s7t01ql7g2jhd83lbo80d6t6inqfn1e1.apps.googleusercontent.com";
 const CLIENT_SECRET = "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";
-const REDIRECT_URL = "http://localhost:3000/dashboard";
+// const REDIRECT_URL = "http://localhost/dashboard";
+// const REDIRECT_URL = "http://localhost:3000/dashboard";
+const REDIRECT_URL = "postmessage";
+// const REDIRECT_URL = "https://ascendex.com/en/global-digital-asset-platform";
 
 function getOauth2Client() {
   const oAuth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
@@ -10,12 +13,13 @@ function getOauth2Client() {
   return oAuth2Client;
 }
 
-export default defineEventHandler(event => {
-  const client = new OAuth2Client(CLIENT_ID);
+export default defineEventHandler(async event => {
+  //   const client = new OAuth2Client(CLIENT_ID);
 
-  async function verify() {
+  try {
     // code comes in the body
     const { code } = await readBody(event);
+    console.log("cb:code", code);
 
     // create a new OAuth2 client
     const client = getOauth2Client();
@@ -28,10 +32,10 @@ export default defineEventHandler(event => {
     client.setCredentials(result.tokens);
 
     // you can do whatever with the tokens
-    console.log(result.tokens);
+    console.log("cb:result.tokens", result.tokens);
 
     return { tokens: result.tokens };
+  } catch (error) {
+    return { message: `cb:error`, error };
   }
-
-  verify().catch(console.error);
 });
