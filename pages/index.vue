@@ -6,9 +6,14 @@
         <button :disabled="!isReady" @click="() => login()">Login with Google</button>
         <div>
             <div>Result:</div>
-            {{ body }}
+            <textarea cols="200" rows="20">{{ body }}</textarea>
         </div>
+
         <button @click="verify">Get Info</button>
+        <div>
+            <div>Result</div>
+            {{ info }}
+        </div>
     </div>
     <NuxtLink to="/dashboard">Dashboard</NuxtLink>
 </template>
@@ -23,6 +28,7 @@ import {
 } from "vue3-google-signin";
 
 let body = ref("<null>");
+let info = ref("<null>");
 
 const handleOnSuccess = async (response: ImplicitFlowSuccessResponse) => {
     // send code to a backend server to verify it.
@@ -36,7 +42,7 @@ const handleOnSuccess = async (response: ImplicitFlowSuccessResponse) => {
         }),
     });
     const json = await res.json()
-    body.value = JSON.stringify(json);
+    body.value = JSON.stringify(json, null, 2);
 
     console.log('handleOnSuccess:res', json);
 
@@ -60,6 +66,10 @@ const verify = async () => {
         credentials: 'include',
         headers: { Authorization: `${tokens.token_type} ${tokens.id_token}`, 'Content-Type': 'application/json' }
     })
+
+    const json = await res.json(); console.log(json);
+
+    info.value = `sub: ${json.sub} email: ${json.email}`;
 }
 
 // const CLIENT_ID = "389924773294-s7t01ql7g2jhd83lbo80d6t6inqfn1e1.apps.googleusercontent.com";
