@@ -1,5 +1,7 @@
 # Google Identity
 
+https://developers.google.com/identity/protocols/oauth2/
+https://console.cloud.google.com/apis/credentials?project=sso-test-373909
 https://vue3-google-signin.syetalabs.io/guide/creating-custom-buttons.html
 
 ## Exceptions
