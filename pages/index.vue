@@ -4,6 +4,10 @@
         <div id="btnGoogle">GGG</div> -->
         <!-- <GoogleLoginButton :google-login-button-props="googleLoginButtonProps"></GoogleLoginButton> -->
         <button :disabled="!isReady" @click="() => login()">Login with Google</button>
+        <div>
+            <div>Result:</div>
+            {{ body }}
+        </div>
     </div>
     <NuxtLink to="/dashboard">Dashboard</NuxtLink>
 </template>
@@ -14,6 +18,8 @@ import {
     type ImplicitFlowSuccessResponse,
     type ImplicitFlowErrorResponse,
 } from "vue3-google-signin";
+
+let body = ref("<null>");
 
 const handleOnSuccess = async (response: ImplicitFlowSuccessResponse) => {
     // send code to a backend server to verify it.
@@ -26,8 +32,9 @@ const handleOnSuccess = async (response: ImplicitFlowSuccessResponse) => {
             code: response.code,
         }),
     });
+    body.value = JSON.stringify(await res.json());
 
-    console.log('handleOnSuccess:res', res);
+    console.log('handleOnSuccess:res', body);
 
 };
 
