@@ -59,8 +59,8 @@ const { isReady, login } = useCodeClient({
 const verify = async () => {
     const { tokens } = JSON.parse(body.value) as GetTokenResponse;
 
-    // const url = 'https://yaorui.test105.ascendex-sandbox.com/api/google/verify';
-    const url = '/api/google/verify';
+    const url = 'https://yaorui.test105.ascendex-sandbox.com/api/google/verify';
+    // const url = '/api/google/verify';
     const res = await fetch(url, {
         method: 'POST',
         credentials: 'include',
