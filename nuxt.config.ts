@@ -11,7 +11,7 @@ export default defineNuxtConfig({
       apple: {
         clientID: "com.ascendex.ssotest",
         teamID: "MTYL2548M3",
-        keyIdentifier: "V7XAQ46P7P",
+        keyIdentifier: "ZT43834TJ7",
         privateKey: `-----BEGIN PRIVATE KEY-----
 MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgJfQywmsBJt0TCmff
 R9pb+iW0ghv0au2XvBOpA3IHWUqgCgYIKoZIzj0DAQehRANCAASe2ac4eBp7njEC
