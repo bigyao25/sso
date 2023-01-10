@@ -27,5 +27,6 @@ export default defineEventHandler(async event => {
     return { sub, email };
   }
 
+  event.node.res.setHeader("Access-Control-Allow-Origin", "*");
   return { message: "err2" };
 });

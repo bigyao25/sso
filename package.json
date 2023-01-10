@@ -11,6 +11,7 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
+    "apple-signin-auth": "^1.7.5",
     "google-auth-library": "^8.7.0",
     "nuxt-vue3-google-signin": "0.0.8"
   }
