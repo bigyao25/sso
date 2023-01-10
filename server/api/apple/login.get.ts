@@ -5,8 +5,8 @@ const options = {
   redirectUri: "https://yaorui.test105.ascendex-sandbox.com/apple/callback",
   // OPTIONAL
   state: "state", // optional, An unguessable random string. It is primarily used to protect against CSRF attacks.
-  responseMode: "query" as "query" | "fragment" | "form_post", // Force set to form_post if scope includes 'email'
-  scope: "email", // optional
+  responseMode: "fragment" as "query" | "fragment" | "form_post", // Force set to form_post if scope includes 'email'
+  scope: "name email", // optional
 };
 
 export default defineEventHandler(async event => {
