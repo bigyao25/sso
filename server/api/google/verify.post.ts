@@ -7,7 +7,8 @@ export default defineEventHandler(async event => {
   const origin = event.node.req.headers.origin || "https://www.ascendex.com";
   event.node.res.setHeader("Access-Control-Allow-Origin", origin);
   event.node.res.setHeader("Access-Control-Allow-Credentials", "true");
-  event.node.res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
+  event.node.res.setHeader("Access-Control-Allow-Method", "POST");
+  event.node.res.setHeader("Access-Control-Allow-Headers", "content-type, authorization");
 
   const token = event.node.req.headers.authorization;
   console.log("authorization", token);
