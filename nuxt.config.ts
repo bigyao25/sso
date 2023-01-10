@@ -12,8 +12,12 @@ export default defineNuxtConfig({
         clientID: "com.ascendex.ssotest",
         teamID: "MTYL2548M3",
         keyIdentifier: "V7XAQ46P7P",
-        privateKey:
-          "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg2hdID5kXEOY3wv805xtThIfcI3pnu/mJypuN2xf1kfygCgYIKoZIzj0DAQehRANCAASlfG3lUF8fKeQfBotE1OeOQIus6YUzhg7N2jU9e0LDALHj6OzJzX2mIOmjuKSdtVblq7/xqldRH6UFTW+jyp6g",
+        privateKey: `-----BEGIN PRIVATE KEY-----
+MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgJfQywmsBJt0TCmff
+R9pb+iW0ghv0au2XvBOpA3IHWUqgCgYIKoZIzj0DAQehRANCAASe2ac4eBp7njEC
+GD9/ud/Yvza10FKqZGoKqniwqVRSA0CgyFsQCfQqnObHPo9JRLlXoZ1tjqhhhIuE
+pb+CANbl
+-----END PRIVATE KEY-----`,
       },
     },
   },

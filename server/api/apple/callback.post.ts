@@ -31,6 +31,8 @@ export default defineEventHandler(async event => {
     privateKey,
   };
   const clientSecret = appleSignin.getClientSecret(options);
+  console.log(clientSecret);
+
   const token = await appleSignin.getAuthorizationToken(body.code, {
     clientID,
     clientSecret,
