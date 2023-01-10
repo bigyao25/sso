@@ -4,6 +4,10 @@ const CLIENT_ID = "389924773294-s7t01ql7g2jhd83lbo80d6t6inqfn1e1.apps.googleuser
 const client = new OAuth2Client(CLIENT_ID);
 
 export default defineEventHandler(async event => {
+  event.node.res.setHeader("Access-Control-Allow-Origin", "*");
+  event.node.res.setHeader("Access-Control-Allow-Credentials", "true");
+  event.node.res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
+
   const token = event.node.req.headers.authorization;
   console.log("authorization", token);
 
@@ -27,6 +31,5 @@ export default defineEventHandler(async event => {
     return { sub, email };
   }
 
-  event.node.res.setHeader("Access-Control-Allow-Origin", "*");
   return { message: "err2" };
 });
