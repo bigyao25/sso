@@ -4,7 +4,8 @@ const CLIENT_ID = "389924773294-s7t01ql7g2jhd83lbo80d6t6inqfn1e1.apps.googleuser
 const client = new OAuth2Client(CLIENT_ID);
 
 export default defineEventHandler(async event => {
-  event.node.res.setHeader("Access-Control-Allow-Origin", "*");
+  const origin = event.node.req.headers.origin || "https://www.ascendex.com";
+  event.node.res.setHeader("Access-Control-Allow-Origin", origin);
   event.node.res.setHeader("Access-Control-Allow-Credentials", "true");
   event.node.res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
 
