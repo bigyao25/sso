@@ -7,6 +7,6 @@
 <script setup>
 
 const login = () => {
-    window.location = "/api/apple/login";
+    window.location = "/api/apple/signin";
 }
 </script>

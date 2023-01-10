@@ -18,7 +18,6 @@ export default defineEventHandler(async event => {
   }
 
   const idToken = token.split(" ")[1];
-  console.log(222, idToken);
 
   const ticket = await client.verifyIdToken({
     idToken,
@@ -33,5 +32,5 @@ export default defineEventHandler(async event => {
     return { sub, email };
   }
 
-  return { message: "err2" };
+  return { message: "verify: no payload" };
 });

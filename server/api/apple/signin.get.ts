@@ -9,6 +9,10 @@ const options = {
   scope: "name email", // optional
 };
 
+/**
+ * Start a signin flow.
+ * This will redirect to Apple server.
+ */
 export default defineEventHandler(async event => {
   const authorizationUrl = appleSignin.getAuthorizationUrl(options);
   console.log(authorizationUrl);
