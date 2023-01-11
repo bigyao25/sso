@@ -1,5 +1,5 @@
 <template>
-    <div style="background-color: bisque;">
+    <div>
         <!-- <button @click="handle">Login by Google</button>
         <div id="btnGoogle">GGG</div> -->
         <!-- <GoogleLoginButton :google-login-button-props="googleLoginButtonProps"></GoogleLoginButton> -->

@@ -1,12 +1,11 @@
 <template>
-    <div style="background-color:lightblue;">
+    <div>
         <button @click="login">Login with Apple</button>
     </div>
 </template>
 
-<script setup>
-
+<script setup lang="ts">
 const login = () => {
-    window.location = "/api/apple/signin";
+    window.open("/api/apple/signin");
 }
 </script>
