@@ -38,12 +38,13 @@ export default defineEventHandler(async event => {
 
   const body = await readBody<CallbackRsp>(event);
   console.log("code", body.code);
-  return { code: body.code, secret: clientSecret };
+  //   return { code: body.code, secret: clientSecret };
+
   const token = await appleSignin.getAuthorizationToken(body.code, {
     clientID,
     clientSecret,
-    redirectUri: "https://yaorui.test105.ascendex-sandbox.com/api/apple/token",
+    // redirectUri: "https://yaorui.test105.ascendex-sandbox.com/api/apple/token",
+    redirectUri: "",
   });
-
   return token;
 });
