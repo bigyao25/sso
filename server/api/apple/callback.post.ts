@@ -16,11 +16,14 @@ type CallbackRsp = {
  * Callback from Apple server.
  */
 export default defineEventHandler(async event => {
-  const body = await readBody<CallbackRsp>(event);
-
   const {
     sso: {
-      apple: { clientID, teamID, keyIdentifier, privateKey },
+      apple: {
+        public: { clientID },
+        teamID,
+        keyIdentifier,
+        privateKey,
+      },
     },
   } = useRuntimeConfig();
 
@@ -31,8 +34,11 @@ export default defineEventHandler(async event => {
     privateKey,
   };
   const clientSecret = appleSignin.getClientSecret(options);
-  console.log(clientSecret);
+  console.log("clientSecret", clientSecret);
 
+  const body = await readBody<CallbackRsp>(event);
+  console.log("code", body.code);
+  return { code: body.code, secret: clientSecret };
   const token = await appleSignin.getAuthorizationToken(body.code, {
     clientID,
     clientSecret,

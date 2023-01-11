@@ -1,7 +1,15 @@
 import appleSignin from "apple-signin-auth";
 
+const {
+  sso: {
+    apple: {
+      public: { clientID },
+    },
+  },
+} = useRuntimeConfig();
+
 const options = {
-  clientID: "com.ascendex.ssotest", // Apple Client ID
+  clientID, // Apple Client ID
   redirectUri: "https://yaorui.test105.ascendex-sandbox.com/api/apple/callback",
   // OPTIONAL
   state: "state", // optional, An unguessable random string. It is primarily used to protect against CSRF attacks.

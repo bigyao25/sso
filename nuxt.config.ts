@@ -9,7 +9,9 @@ export default defineNuxtConfig({
         clientId: "389924773294-s7t01ql7g2jhd83lbo80d6t6inqfn1e1.apps.googleusercontent.com",
       },
       apple: {
-        clientID: "com.ascendex.ssotest",
+        public: {
+          clientID: "com.ascendex.ssotest",
+        },
         teamID: "MTYL2548M3",
         keyIdentifier: "ZT43834TJ7",
         privateKey: `-----BEGIN PRIVATE KEY-----
