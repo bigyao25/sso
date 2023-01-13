@@ -1,5 +1,5 @@
 <template>
-    <button @click="login">Login With Google</button>
+    <button @click="login">Login With Apple</button>
 </template>
 
 <script setup lang="ts">

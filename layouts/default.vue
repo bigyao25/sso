@@ -5,7 +5,7 @@
             <NuxtLink to="/apple1">Apple1</NuxtLink>
             <NuxtLink to="/apple2">Apple2</NuxtLink>
             <NuxtLink to="/firebase/google">Firebase Google</NuxtLink>
-            <NuxtLink to="/fireebase/apple">Firebase Apple</NuxtLink>
+            <NuxtLink to="/firebase/apple">Firebase Apple</NuxtLink>
         </nav>
         <slot />
     </div>
