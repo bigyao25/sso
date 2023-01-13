@@ -1,10 +1,8 @@
 import appleSignin from "apple-signin-auth";
 
 const {
-  sso: {
-    apple: {
-      public: { clientID },
-    },
+  app: {
+    apple: { clientID },
   },
 } = useRuntimeConfig();
 
@@ -22,6 +20,7 @@ const options = {
  * This will redirect to Apple server.
  */
 export default defineEventHandler(async event => {
+  // this method just can be excuted on server side.
   const authorizationUrl = appleSignin.getAuthorizationUrl(options);
   console.log(authorizationUrl);
 

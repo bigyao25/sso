@@ -17,13 +17,11 @@ type CallbackRsp = {
  */
 export default defineEventHandler(async event => {
   const {
+    app: {
+      apple: { clientID },
+    },
     sso: {
-      apple: {
-        public: { clientID },
-        teamID,
-        keyIdentifier,
-        privateKey,
-      },
+      apple: { teamID, keyIdentifier, privateKey },
     },
   } = useRuntimeConfig();
 
@@ -46,5 +44,10 @@ export default defineEventHandler(async event => {
     // redirectUri: "https://yaorui.test105.ascendex-sandbox.com/api/apple/token",
     redirectUri: "",
   });
-  return token;
+  //   return token;
+
+  event.node.res.setHeader("set-cookie", `id-token=${token.id_token}; Secure; HttpOnly`);
+  event.node.res.setHeader("Location", "https://yaorui.test105.ascendex-sandbox.com/apple2/ok");
+  event.node.res.statusCode = 302;
+  event.node.res.end();
 });

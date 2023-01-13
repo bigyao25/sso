@@ -4,10 +4,14 @@
 </template>
 
 <script setup>
+import appleSignin from "apple-signin-auth";
+
 const {
+    app: {
+        apple: { clientID }
+    },
     sso: {
         apple: {
-            public: { clientID },
             teamID,
             keyIdentifier,
             privateKey,
