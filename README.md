@@ -18,3 +18,5 @@ https://yaorui.test105.ascendex-sandbox.com/api/apple/callback
 ## 配置
 
 弹窗：Create an account for pc test using your Apple ID “79274154@qq.com”. 中会有【pc test】
+
+# Firebase
