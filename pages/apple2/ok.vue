@@ -8,6 +8,6 @@ import Cookies from 'js-cookie';
 const token = ref("");
 
 onMounted(() => {
-    token.value = Cookies.get('id-token');
+    token.value = Cookies.get('token');
 })
 </script>
