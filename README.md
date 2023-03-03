@@ -17,6 +17,45 @@ https://yaorui.test105.ascendex-sandbox.com/api/apple/callback
 
 ## 配置
 
-弹窗：Create an account for pc test using your Apple ID “79274154@qq.com”. 中会有【pc test】
+弹窗：Create an account for pc test using your Apple ID “rui.yao@ascendex.com”. 中会有【pc test】
+
+### ❗️ 配置邮箱
+
+1. 打开 https://developer.apple.com/account/resources/services/list
+2. Configure Sign in with Apple for Email Communication
+3. Email Sources 中填入 ascendex.com
 
 # Firebase
+
+## Google
+
+## Apple
+
+### 配置 firebase 回调地址
+
+> 入口：https://developer.apple.com/account/resources/identifiers/list/serviceId
+
+## 验证邮箱
+
+是否需要邮箱？不需要吧
+
+> Authentication - templates
+
+### ❗️ 修改发件人域名
+
+> 点击：Customize domain
+
+## 配额
+
+https://firebase.google.com/docs/auth/limits?authuser=0&hl=zh
+https://cloud.google.com/identity-platform/pricing?authuser=0
+
+# 客户端
+
+## 撤销用户授权
+
+### Google
+
+Google Account:
+
+Security - Manage third-party access - Apps with access to your account - Signing in with Google
